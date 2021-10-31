@@ -1,0 +1,29 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Recipe {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Query {
+  recipe(id: Int!): Recipe!
+}
+
+type Mutation {
+  createRecipe(createRecipeInput: CreateRecipeInput!): Recipe!
+  updateRecipe(updateRecipeInput: UpdateRecipeInput!): Recipe!
+  removeRecipe(id: Int!): Recipe!
+}
+
+input CreateRecipeInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateRecipeInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
