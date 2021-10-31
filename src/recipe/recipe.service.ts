@@ -1,11 +1,23 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { nanoid } from 'nanoid';
+import { Repository } from 'typeorm';
 import { CreateRecipeInput } from './dto/create-recipe.input';
 import { UpdateRecipeInput } from './dto/update-recipe.input';
+import { Recipe } from './entities/recipe.entity';
 
 @Injectable()
 export class RecipeService {
-  create(createRecipeInput: CreateRecipeInput) {
-    return 'This action adds a new recipe';
+  constructor(
+    @InjectRepository(Recipe)
+    private readonly recipeRepository: Repository<Recipe>,
+  ) {}
+
+  async create(createRecipeInput: CreateRecipeInput): Promise<Recipe> {
+    return await this.recipeRepository.save({
+      id: nanoid(),
+      ...createRecipeInput,
+    });
   }
 
   findAll() {
