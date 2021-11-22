@@ -4,7 +4,9 @@
 
 type Recipe {
   id: ID!
+  name: String!
   description: String!
+  tags: [String!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -15,6 +17,7 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Query {
+  recipes: [Recipe!]!
   recipe(id: Int!): Recipe!
 }
 
@@ -26,9 +29,13 @@ type Mutation {
 
 input CreateRecipeInput {
   description: String!
+  name: String!
+  tags: [String!]
 }
 
 input UpdateRecipeInput {
   description: String
+  name: String
+  tags: [String!]
   id: Int!
 }

@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RecipeModule } from 'src/recipe/recipe.module';
+import { RecipesModule } from 'src/recipes/recipes.module';
 import { EnvironmentVariables, validate } from 'src/utils/env-validation';
 
 @Module({
@@ -34,7 +34,7 @@ import { EnvironmentVariables, validate } from 'src/utils/env-validation';
     }),
 
     // my modules
-    RecipeModule,
+    RecipesModule,
   ],
 })
 export class AppModule {}

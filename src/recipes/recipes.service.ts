@@ -7,7 +7,7 @@ import { UpdateRecipeInput } from './dto/update-recipe.input';
 import { Recipe } from './entities/recipe.entity';
 
 @Injectable()
-export class RecipeService {
+export class RecipesService {
   constructor(
     @InjectRepository(Recipe)
     private readonly recipeRepository: Repository<Recipe>,
